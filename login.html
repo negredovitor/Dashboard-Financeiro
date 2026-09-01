@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Controle Financeiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+    <button id="btn-tema" class="btn-tema">🌙 Escuro</button>
+
+    <div class="login-container">
+        <header class="login-header">
+            <h1 class="logo"><strong>Controle Financeiro</strong> Pessoal</h1>
+            <p>Faça login para gerenciar suas finanças</p>
+        </header>
+
+        <form id="form-login" class="login-form">
+            <div class="input-group">
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" placeholder="Digite 'admin'" required>
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite '123'" required>
+            </div>
+            
+            <button type="submit" class="btn-adicionar btn-login">Acessar Sistema</button>
+            
+            <div id="mensagem-erro" class="erro-login">
+                Credenciais incorretas. Tente novamente.
+            </div>
+        </form>
+    </div>
+
+    <script src="tema.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

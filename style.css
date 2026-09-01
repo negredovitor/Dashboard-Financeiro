@@ -1,0 +1,291 @@
+:root {
+    --bg-color: #f8fafc;
+    --text-main: #1e293b;
+    --text-light: #64748b;
+    --primary: #3b82f6;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 1000px;
+}
+
+header h1 {
+    color: #1e3a8a;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+header h1 strong {
+    font-weight: 700;
+}
+
+.resumo {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    flex: 1;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+}
+
+.card-header {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card-receita { 
+    background: linear-gradient(135deg, #e6ffe6 0%, #dcfce7 100%); 
+    color: #166534; 
+}
+
+.card-despesa { 
+    background: linear-gradient(135deg, #ffe6e6 0%, #fee2e2 100%); 
+    color: #991b1b; 
+}
+
+.card-balanco { 
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%); 
+    color: #4ade80; 
+}
+.card-balanco .card-header { color: #eff6ff; }
+
+/* Estilo do Gráfico */
+.grafico-container {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    max-height: 300px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+#form-transacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group:nth-child(1), .input-group:nth-child(5) {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+input, select {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.btn-adicionar {
+    grid-column: span 2;
+    padding: 15px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
+    transition: transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn-adicionar:hover {
+    transform: translateY(-2px);
+}
+
+ul { list-style: none; }
+
+li {
+    background: var(--white);
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border-left: 6px solid transparent;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+li.receita-item { border-left-color: #22c55e; }
+li.despesa-item { border-left-color: #ef4444; }
+
+.transacao-info { display: flex; flex-direction: column; }
+.transacao-titulo { font-weight: 600; font-size: 1rem; }
+.transacao-data { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; }
+
+.transacao-acoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.transacao-valor { font-weight: 700; font-size: 1.1rem; }
+.receita-item .transacao-valor { color: #166534; }
+.despesa-item .transacao-valor { color: #991b1b; }
+
+.btn-excluir {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    opacity: 0.7;
+}
+
+.btn-excluir:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .resumo, .grid-layout { flex-direction: column; display: flex; }
+    #form-transacao { grid-template-columns: 1fr; }
+    .input-group, .btn-adicionar { grid-column: span 1 !important; }
+}
+
+/* Telas de Login */
+.login-body {
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    animation: slideIn 0.4s ease-out;
+}
+
+.login-header { margin-bottom: 30px; }
+.login-header p { color: var(--text-light); font-size: 0.9rem; margin-top: 5px; }
+.login-form .input-group { text-align: left; margin-bottom: 20px; }
+.btn-login { width: 100%; margin-top: 10px; }
+.erro-login {
+    display: none;
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-left: 4px solid #ef4444;
+}
+
+/* Botão Tema & Modo Escuro */
+.btn-tema {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--white);
+    border: 2px solid var(--primary);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.btn-tema:hover { transform: scale(1.05); }
+
+body.dark-mode {
+    --bg-color: #0f172a;      
+    --text-main: #f8fafc;     
+    --text-light: #94a3b8;    
+    --white: #1e293b;         
+}
+
+body.dark-mode .grafico-container {
+    background-color: var(--white); 
+}
+
+body.dark-mode input, 
+body.dark-mode select {
+    background-color: #334155;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+body.dark-mode input::placeholder { color: #94a3b8; }
+body.dark-mode .erro-login {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border-left-color: #ef4444;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro Pessoal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="btn-tema" class="btn-tema">🌙 Escuro</button>
+
+    <div class="dashboard">
+        <header>
+            <h1 class="logo"><strong>Controle Financeiro</strong> Pessoal</h1>
+        </header>
+
+        <section class="resumo">
+            <div class="card card-receita">
+                <div class="card-header">
+                    <span>↑ Receitas Totais</span>
+                </div>
+                <h2 id="receitas">R$ 0,00</h2>
+            </div>
+            <div class="card card-despesa">
+                <div class="card-header">
+                    <span>↓ Despesas Totais</span>
+                </div>
+                <h2 id="despesas">R$ 0,00</h2>
+            </div>
+            <div class="card card-balanco">
+                <div class="card-header">
+                    <span>⚖ Balanço Atual</span>
+                </div>
+                <h2 id="balanco">R$ 0,00</h2>
+            </div>
+        </section>
+
+        <!-- Container do Gráfico -->
+        <section class="grafico-container">
+            <canvas id="graficoBalanco"></canvas>
+        </section>
+
+        <main class="grid-layout">
+            <section class="formulario-section">
+                <h3>Nova Transação</h3>
+                <form id="form-transacao">
+                    <div class="input-group">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" id="descricao" placeholder="Ex: Supermercado" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="tipo">Categoria</label>
+                        <select id="tipo" required>
+                            <option value="" disabled selected>Escolher...</option>
+                            <option value="receita">Receita</option>
+                            <option value="despesa">Despesa</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="valor">Valor</label>
+                        <input type="number" id="valor" placeholder="Valor" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn-adicionar">Adicionar Transação +</button>
+                </form>
+            </section>
+
+            <section class="historico-section">
+                <h3>Histórico</h3>
+                <ul id="lista-transacoes">
+                    <!-- Transações injetadas pelo JavaScript -->
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="tema.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
