@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Controle Financeiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+    <button id="btn-tema" class="btn-tema">🌙 Escuro</button>
+
+    <div class="login-container">
+        <header class="login-header">
+            <h1 class="logo"><strong>Controle Financeiro</strong> Pessoal</h1>
+            <p id="login-subtitle">Faça login para gerenciar suas finanças</p>
+        </header>
+
+        <form id="form-login" class="login-form">
+            <div class="input-group">
+                <label for="login-email">E-mail</label>
+                <input type="email" id="login-email" placeholder="seu@email.com" required autocomplete="email">
+            </div>
+            <div class="input-group">
+                <label for="login-senha">Senha</label>
+                <input type="password" id="login-senha" placeholder="Sua senha" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn-adicionar btn-login" id="btn-login-submit">Entrar</button>
+            <p class="toggle-form">Não tem uma conta? <a href="#" id="show-register">Cadastre-se</a></p>
+        </form>
+
+        <form id="form-register" class="login-form" style="display: none;">
+            <div class="input-group">
+                <label for="reg-nome">Nome Completo</label>
+                <input type="text" id="reg-nome" placeholder="Seu nome" required autocomplete="name">
+            </div>
+            <div class="input-group">
+                <label for="reg-email">E-mail</label>
+                <input type="email" id="reg-email" placeholder="seu@email.com" required autocomplete="email">
+            </div>
+            <div class="input-group">
+                <label for="reg-senha">Senha</label>
+                <input type="password" id="reg-senha" placeholder="Mínimo 4 caracteres" minlength="4" required autocomplete="new-password">
+            </div>
+            <div class="input-group">
+                <label for="reg-confirmar">Confirmar Senha</label>
+                <input type="password" id="reg-confirmar" placeholder="Repita a senha" required autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn-adicionar btn-login" id="btn-register-submit">Criar Conta</button>
+            <p class="toggle-form">Já tem conta? <a href="#" id="show-login">Fazer Login</a></p>
+        </form>
+
+        <div id="mensagem-feedback" class="erro-login"></div>
+    </div>
+
+    <script src="tema.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

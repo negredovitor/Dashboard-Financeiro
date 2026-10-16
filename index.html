@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro Pessoal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="btn-tema" class="btn-tema">🌙 Escuro</button>
+
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <h1 class="logo"><strong>Controle Financeiro</strong> Pessoal</h1>
+            <div class="user-area">
+                <span id="user-greeting" class="user-greeting">Olá, Usuário</span>
+                <button id="btn-logout" class="btn-logout">Sair ➜</button>
+            </div>
+        </header>
+
+        <section class="resumo">
+            <div class="card card-receita">
+                <div class="card-header"><span>↑ Receitas Totais</span></div>
+                <h2 id="receitas">R$ 0,00</h2>
+            </div>
+            <div class="card card-despesa">
+                <div class="card-header"><span>↓ Despesas Totais</span></div>
+                <h2 id="despesas">R$ 0,00</h2>
+            </div>
+            <div class="card card-balanco">
+                <div class="card-header"><span>⚖ Balanço Atual</span></div>
+                <h2 id="balanco">R$ 0,00</h2>
+            </div>
+        </section>
+
+        <section class="grafico-container">
+            <canvas id="graficoBalanco"></canvas>
+        </section>
+
+        <main class="grid-layout">
+            <section class="formulario-section">
+                <h3 id="form-title">Nova Transação</h3>
+                <form id="form-transacao">
+                    <input type="hidden" id="edit-id">
+                    <div class="input-group">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" id="descricao" placeholder="Ex: Supermercado" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="tipo">Tipo</label>
+                        <select id="tipo" required>
+                            <option value="" disabled selected>Escolher...</option>
+                            <option value="income">Receita</option>
+                            <option value="expense">Despesa</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="categoria">Categoria</label>
+                        <input type="text" id="categoria" placeholder="Ex: Alimentação">
+                    </div>
+                    <div class="input-group">
+                        <label for="valor">Valor (R$)</label>
+                        <input type="text" id="valor" placeholder="0,00" inputmode="decimal" required>
+                    </div>
+                    <button type="submit" class="btn-adicionar" id="btn-submit">Adicionar Transação +</button>
+                    <button type="button" class="btn-cancelar" id="btn-cancelar" style="display:none;">Cancelar edição</button>
+                </form>
+            </section>
+
+            <section class="historico-section">
+                <div class="historico-header">
+                    <h3>Histórico</h3>
+                    <button id="btn-exportar" class="btn-exportar" title="Exportar CSV">⬇ CSV</button>
+                </div>
+
+                <div class="filtros">
+                    <input type="text" id="filtro-busca" placeholder="🔍 Buscar...">
+                    <select id="filtro-tipo">
+                        <option value="">Todos os tipos</option>
+                        <option value="income">Só receitas</option>
+                        <option value="expense">Só despesas</option>
+                    </select>
+                    <select id="filtro-mes">
+                        <option value="">Todos os meses</option>
+                    </select>
+                </div>
+
+                <ul id="lista-transacoes">
+                    <li class="loading-item">Carregando transações...</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="tema.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
