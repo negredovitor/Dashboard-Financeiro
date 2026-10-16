@@ -1,27 +1,46 @@
-# 💰 Dashboard Financeiro Pessoal
+# 🚀 v2.0.0 — Dashboard Financeiro Pessoal
 
-Dashboard web para controle de receitas e despesas, com autenticação JWT,
-gráfico dinâmico, filtros, edição e exportação em CSV.
+Esta atualização transforma o esboço inicial em uma aplicação completa e pronta para uso no dia a dia. Foco em **usabilidade**, **feedback visual** e **estabilidade**.
 
-![Status](https://img.shields.io/badge/status-ativo-success)
+## ✨ Novidades
 
-## 🚀 Tecnologias
+### 📊 Dashboard
+- **Edição de transações** — agora é possível corrigir qualquer lançamento clicando no ícone ✏️
+- **Filtros dinâmicos** — busca por texto, filtro por tipo (receita/despesa) e por mês
+- **Exportação CSV** — baixe todo o histórico em um clique, pronto para Excel/Google Sheets
+- **Máscara de moeda** — o input de valor formata automaticamente no padrão brasileiro (R$ 1.234,56)
+- **Toast notifications** — feedback visual colorido para cada ação (sucesso, erro, info)
+- **Loading states** — indicador visual enquanto os dados carregam
+- **Confirmação de logout** — evita sair por engano
 
-- **Front-end:** HTML5, CSS3, JavaScript (Vanilla), Chart.js
-- **Back-end:** Node.js + Express 5
-- **Banco:** SQLite3
-- **Auth:** JWT + bcryptjs
+### 🎨 Interface
+- **Modo escuro corrigido** — agora atualiza também as cores do gráfico em tempo real
+- **Layout responsivo aprimorado** — melhor experiência em tablets e celulares
+- **CSS limpo** — removida a duplicação de estilos
+- **Ícones mais claros** — botão "Sair" com seta semântica
 
-## 📦 Instalação
+### 🔒 Segurança & Backend
+- **Rota PUT** `/api/transactions/:id` para edição segura (valida ownership)
+- **Escape de HTML** na renderização — proteção contra XSS em títulos e categorias
+- **Validações** reforçadas no servidor e no cliente (valor > 0, campos obrigatórios)
+- **Tratamento de 401** — redirecionamento automático quando o token expira
 
-> Requer **Node.js ≥ 20.17** (por causa do `sqlite3@6`).
+### 🛠️ Infraestrutura
+- `.gitignore` configurado (`node_modules`, `database.db`, `.env`)
+- `package.json` com campo `engines` (Node ≥ 20.17)
+- Script `npm run dev` com `--watch` para desenvolvimento
+- README completo com documentação da API e exemplos de uso
+
+## 🐛 Correções
+
+- Corrigido erro no `tema.js` quando o botão de tema não existia na página
+- Corrigido carregamento do `sqlite3` no Windows (instruções no README)
+- Corrigido encoding do CSV (BOM UTF-8 para abrir corretamente no Excel)
+- Corrigida a formatação de valores monetários em todas as telas
+
+## 📦 Como atualizar
 
 ```bash
-# 1. Clone / extraia o projeto
-# 2. Instale as dependências
+git pull
 npm install
-
-# 3. Inicie o servidor
 npm start
-# ou em modo watch:
-npm run dev
